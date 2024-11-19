@@ -1,0 +1,33 @@
+# Localizacao _root_
+version: '3.8'
+
+services:
+  database:
+    build:
+      context: ./Docker/sql
+      dockerfile: Dockerfile
+    container_name: mysql_container
+    ports:
+      - "3310:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+
+  php:
+    build:
+      context: ./Docker/project
+      dockerfile: Dockerfile
+    container_name: php_container
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - database
+
+volumes:
+  db_data:
