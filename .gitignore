@@ -11,7 +11,7 @@
 
 # Ignorar arquivos de IDEs
 .idea/
-.vscode/
+.vscode
 
 # Ignorar outros arquivos de sistema
 *.DS_Store

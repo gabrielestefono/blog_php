@@ -5,22 +5,22 @@
  */
 namespace App\Routes;
 
+use App\Helpers\View;
+
 class Routes
 {
+    use View;
     public static function routes()
     {
-        $request_uri = $_SERVER['REQUEST_URI'];
+        $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-        switch ($request_uri) {
-            case '/':
-                readfile(__DIR__ . '/../Views/index.php');
-                break;
-            case '/post':
-                readfile(__DIR__ . '/../Views/post.php');
-                break;
-            default:
-                readfile(__DIR__ . '/../Views/404.php');
-                break;
-        }
+        $routes = [
+            '/' => 'index.php',
+            '/post' => 'post.php',
+        ];
+
+        $path = $routes[$request_uri] ?? 'Errors/404.php';
+
+        View::view($path);
     }
 }
