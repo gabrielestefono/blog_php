@@ -1,0 +1,16 @@
+{
+    "name": "gabriel/blog_php",
+    "type": "false",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "gabrielestefono",
+            "email": "gabrielestefono@hotmail.com"
+        }
+    ],
+    "require": {}
+}

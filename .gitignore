@@ -13,9 +13,6 @@
 .idea/
 .vscode/
 
-# Ignorar o diretório de build do Docker (se necessário)
-Docker/
-
 # Ignorar outros arquivos de sistema
 *.DS_Store
 Thumbs.db
