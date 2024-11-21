@@ -29,18 +29,5 @@ services:
     depends_on:
       - database
 
-  node:
-    build:
-      context: ./Docker/node
-      dockerfile: Dockerfile
-    container_name: node
-    ports:
-      - "5173:5173"
-    volumes:
-      - .:/app
-    depends_on:
-      - php
-    command: sh -c "npm install && npm run dev"
-
 volumes:
   db_data:
