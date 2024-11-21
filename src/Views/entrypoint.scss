@@ -1,0 +1,11 @@
+@use "../Components/Layout/Header/Header" as *;
+@use "./Layout/Visitor.scss" as *;
+
+// Reset do css
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Work Sans", sans-serif;
+}

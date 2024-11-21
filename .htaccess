@@ -1,3 +1,10 @@
 RewriteEngine On
+
+# Exclui assets (imagens, CSS, JS, etc.)
+RewriteCond %{REQUEST_URI} !\.(jpg|jpeg|png|gif|css|js|ico|svg|woff|woff2|ttf|eot|json|xml)$
+
+# Exclui a index.php
 RewriteCond %{REQUEST_URI} !^/index.php$
+
+# Redireciona para index.php para outras rotas
 RewriteRule ^(.*)$ /index.php [QSA,L]
