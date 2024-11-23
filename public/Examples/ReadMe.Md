@@ -1,0 +1,1 @@
+# Essa pasta deve ser deletada ao final do desenvolvimento

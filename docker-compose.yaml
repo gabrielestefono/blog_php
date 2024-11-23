@@ -28,6 +28,7 @@ services:
       - .:/var/www/html:consistent
     depends_on:
       - database
+    command: sh -c "composer install && apache2-foreground"
 
   node:
     build:
