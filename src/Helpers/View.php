@@ -34,6 +34,11 @@ trait View
 
     public static function component(string $path, ?array $data = [])
     {
+        self::includeFile($path, 'Components', $data);
+    }
+
+    public static function componentChild(string $path, ?array $data = [])
+    {
         self::$components[] = [
             'path' => $path,
             'data' => $data,

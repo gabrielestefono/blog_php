@@ -1,4 +1,4 @@
-<div class="header">
+<header class="header">
     <a href="/" class="left">
         <span>WB</span>
         <span>We</span>
@@ -20,4 +20,4 @@
             <span></span>
         </button>
     </div>
-</div>
+</header>

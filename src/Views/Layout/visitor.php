@@ -27,8 +27,9 @@
     <main class="main">
         <div class="content">
             <?php View::layout('Header/Header.php') ?>
+            <?php View::renderComponents(); ?>
+            <?php View::layout('Footer/Footer.php') ?>
         </div>
-        <?php View::renderComponents(); ?>
     </main>
     <?php
     $jsPath = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/js/entrypoint.js';
