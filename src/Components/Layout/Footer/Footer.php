@@ -1,58 +1,63 @@
-<footer>
+<footer class="footer">
     <div>
         <div>
-            <h2>About</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
             <div>
-                <span><em>Email</em>: info@jstemplate.net</span>
-                <span><em>Phone</em>: 880 123 456 789</span>
-            </div>
-        </div>
-        <div>
-            <div>
-                <h2>Quick Link</h2>
-                <a href="#">Home</a>
-                <a href="#">About</a>
-                <a href="#">Blog</a>
-                <a href="#">Archived</a>
-                <a href="#">Author</a>
-                <a href="#">Contact</a>
-            </div>
-            <div>
-                <h2>Category</h2>
-                <a href="#">Lifestyle</a>
-                <a href="#">Technology</a>
-                <a href="#">Travel</a>
-                <a href="#">Business</a>
-                <a href="#">Economy</a>
-                <a href="#">Sports</a>
-            </div>
-        </div>
-        <div>
-            <form>
-                <h2>Weekly Newsletter</h2>
-                <p>Get blog articles and offers via email</p>
+                <h2>About</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
                 <div>
-                    <input type="text" placeholder="Your Email">
+                    <span><strong>Email</strong>: info@jstemplate.net</span>
+                    <span><strong>Phone</strong>: 880 123 456 789</span>
                 </div>
-                <input type="submit" value="Subscribe">
+            </div>
+            <div>
+                <div>
+                    <h2>Quick Link</h2>
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Archived</a>
+                    <a href="#">Author</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div>
+                    <h2>Category</h2>
+                    <a href="#">Lifestyle</a>
+                    <a href="#">Technology</a>
+                    <a href="#">Travel</a>
+                    <a href="#">Business</a>
+                    <a href="#">Economy</a>
+                    <a href="#">Sports</a>
+                </div>
+            </div>
+            <form>
+                <div>
+                    <h2>Weekly Newsletter</h2>
+                    <p>Get blog articles and offers via email</p>
+                </div>
+                <div>
+                    <label>
+                        <input type="text" placeholder="Your Email">
+                        <img src="public/assets/images/email.svg" alt="Ícone de email">
+                    </label>
+                    <button>Subscribe</button>
+                </div>
             </form>
         </div>
-    </div>
-    <div>
         <div>
             <div>
-                <img src="" alt="">
+                <div>
+                    <img src="public/assets/images/logo.svg" alt="">
+                </div>
+                <div>
+                    <h3>Meta<strong>Blog</strong></h3>
+                    <p>© JS Template 2023. All Rights Reserved.</p>
+                </div>
             </div>
             <div>
-                <h3>MetaBlog</h3>
-                <p>© JS Template 2023. All Rights Reserved.</p>
+                <a href="">Terms of Use</a>
+                <a href="">Privacy Policy</a>
+                <a href="">Cookie Policy</a>
             </div>
-        </div>
-        <div>
-            <a href="">Terms of Use</a>
-            <a href="">Privacy Policy</a>
-            <a href="">Cookie Policy</a>
         </div>
     </div>
 </footer>

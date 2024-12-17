@@ -28,8 +28,8 @@
         <div class="content">
             <?php View::layout('Header/Header.php') ?>
             <?php View::renderComponents(); ?>
-            <?php View::layout('Footer/Footer.php') ?>
         </div>
+        <?php View::layout('Footer/Footer.php') ?>
     </main>
     <?php
     $jsPath = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/js/entrypoint.js';

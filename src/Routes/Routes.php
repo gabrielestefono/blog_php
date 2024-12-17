@@ -16,6 +16,7 @@ class Routes
 
         $routes = [
             '/' => 'index.php',
+            '/category' => 'category.php',
             '/post' => 'post.php',
         ];
 

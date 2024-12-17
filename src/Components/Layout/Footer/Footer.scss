@@ -1,0 +1,219 @@
+.footer {
+  background-color: #f6f6f7;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 6.25rem;
+
+  > div {
+    max-width: 76rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+
+    > div:first-of-type {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+
+      > div:nth-of-type(1) {
+        width: 18.0625rem;
+
+        > h2 {
+          font-weight: 600;
+          font-size: 1.125rem;
+          line-height: 1.75rem;
+          color: #181a2a;
+        }
+
+        > p {
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 1.5rem;
+          color: #696a75;
+          margin-top: 0.75rem;
+        }
+
+        > div {
+          margin-top: 1.5rem;
+          display: flex;
+          flex-direction: column;
+
+          > span {
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5rem;
+            color: #3b3c4a;
+
+            > strong {
+              font-weight: 600;
+              color: #181a2a;
+            }
+          }
+        }
+      }
+
+      > div:nth-of-type(2) {
+        width: 30.9375rem;
+        display: flex;
+        justify-content: center;
+        gap: 5rem;
+
+        > div {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.5rem;
+
+          > h2 {
+            font-weight: 600;
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            color: #181a2a;
+          }
+
+          > a {
+            text-decoration: none;
+            color: #3b3c4a;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5rem;
+
+            &:first-of-type {
+              margin-top: 1.5rem;
+            }
+
+            &:hover {
+              color: #4b6bfb;
+            }
+          }
+        }
+      }
+
+      > form {
+        width: 24.5rem;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.75rem;
+        gap: 1.875rem;
+
+        > div:first-of-type {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+
+          > h2 {
+            font-weight: 600;
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            color: #181a2a;
+          }
+
+          > p {
+            color: #696a75;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5rem;
+          }
+        }
+
+        > div:last-of-type {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+
+          > label {
+            width: 20rem;
+            height: 3rem;
+            display: flex;
+            gap: 0.625rem;
+            border: 1px solid #dcdddf;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+
+            > input {
+              width: 100%;
+              border: none;
+              outline: none;
+            }
+          }
+
+          > button {
+            width: 20rem;
+            height: 3rem;
+            border-radius: 0.75rem;
+            border: none;
+            background-color: #4b6bfb;
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.5rem;
+            color: white;
+            cursor: pointer;
+
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+    }
+
+    > div:last-of-type {
+      border-top: 1px solid #dcdddf;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 7.375rem;
+      margin-top: 4rem;
+
+      > div:first-of-type {
+        display: flex;
+        gap: 10px;
+
+        > div:last-of-type {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+
+          > h3 {
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 1.75rem;
+            color: #141624;
+          }
+
+          > p {
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5rem;
+            color: #3b3c4a;
+          }
+        }
+      }
+
+      > div:last-of-type {
+        display: flex;
+
+        > a {
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 1.5rem;
+          color: #3b3c4a;
+          text-decoration: none;
+          padding-inline: 1rem;
+
+          &:not(:last-child) {
+            border-right: 1px solid #e8e8ea;
+          }
+        }
+      }
+    }
+  }
+}
