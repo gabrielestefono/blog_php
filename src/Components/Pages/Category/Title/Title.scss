@@ -1,0 +1,39 @@
+.category-title {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5rem;
+
+  > h1 {
+    font-size: 1.875rem;
+    font-weight: 600;
+    line-height: 2.25rem;
+    color: #181a2a;
+  }
+
+  > div {
+    display: flex;
+    margin-top: 0.75rem;
+
+    > a {
+      line-height: 1.5rem;
+      color: #3b3c4a;
+      text-decoration: none;
+      padding-inline: 1rem;
+
+      &.title-active {
+        opacity: 0.8;
+      }
+
+      &:not(:last-child) {
+        border-right: 1px solid #e8e8ea;
+      }
+
+      &:hover {
+        color: #4b6bfb;
+      }
+    }
+  }
+}
