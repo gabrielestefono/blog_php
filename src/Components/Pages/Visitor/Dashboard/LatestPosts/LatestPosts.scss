@@ -1,17 +1,17 @@
-.latest-posts{
-    width: 100%;
+.latest-posts {
+  width: 100%;
 
-    > h1{
-        font-size: 1.5rem;
-        font-weight: 700;
-        line-height: 28px;
-        margin-block: 2rem;
-    }
+  > h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 28px;
+    margin-block: 2rem;
+  }
 
-    > div{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        row-gap: 20px;
-        column-gap: 20px;
-    }
+  > div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 20px;
+    column-gap: 20px;
+  }
 }

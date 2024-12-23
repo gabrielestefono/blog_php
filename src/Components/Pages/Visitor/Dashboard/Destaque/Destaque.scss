@@ -1,71 +1,71 @@
-.dashboard--destaque{
-    margin-top: 1.5rem;
-    position: relative;
-    margin-bottom: 9rem;
+.dashboard--destaque {
+  margin-top: 1.5rem;
+  position: relative;
+  margin-bottom: 9rem;
 
-    > div:first-of-type{
-        border-radius: 12px;
-        
-        > img{
-            border-radius: 12px;
-        }
+  > div:first-of-type {
+    border-radius: 12px;
+
+    > img {
+      border-radius: 12px;
+    }
+  }
+
+  > div:nth-child(2) {
+    position: absolute;
+    bottom: -4rem;
+    left: 4rem;
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 2.5rem;
+    max-width: 37.375rem;
+
+    > span {
+      background-color: #4b6bfb;
+      color: white;
+      line-height: 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.25rem 0.625rem;
+      border-radius: 0.375rem;
     }
 
-    > div:nth-child(2){
-        position: absolute;
-        bottom: -4rem;
-        left: 4rem;
-        background-color: white;
-        border-radius: .75rem;
-        padding: 2.5rem;
-        max-width: 37.375rem;
+    a {
+      color: #181a2a;
+      text-decoration: none;
 
-        > span{
-            background-color: #4B6BFB;
-            color: white;
-            line-height: 1.25rem;
-            font-size: .875rem;
-            font-weight: 500;
-            padding: .25rem .625rem;
-            border-radius: .375rem;
-        }
-
-        a {
-            color: #181A2A;
-            text-decoration: none;
-
-            > h2{
-                margin-top: 1rem;
-                font-size: 2.25rem;
-                line-height: 2.5rem;
-                font-weight: 600;
-            }
-        }
-
-        div{
-            margin-top: 1.5rem;
-            display: flex;
-            align-items: center;
-
-            img{
-                border-radius: 1.75rem;
-                height: 2.25rem;
-                width: 2.25rem;
-            }
-
-            span:first-of-type{
-                margin-left: .75rem;
-                color: #97989F;
-                font-size: 1rem;
-                font-weight: 500;                
-            }
-
-            span:nth-of-type(2){
-                margin-left: 1.25rem;
-                color: #97989F;
-                font-size: 1rem;
-                font-weight: 400;
-            }
-        }
+      > h2 {
+        margin-top: 1rem;
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+        font-weight: 600;
+      }
     }
+
+    div {
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+
+      img {
+        border-radius: 1.75rem;
+        height: 2.25rem;
+        width: 2.25rem;
+      }
+
+      span:first-of-type {
+        margin-left: 0.75rem;
+        color: #97989f;
+        font-size: 1rem;
+        font-weight: 500;
+      }
+
+      span:nth-of-type(2) {
+        margin-left: 1.25rem;
+        color: #97989f;
+        font-size: 1rem;
+        font-weight: 400;
+      }
+    }
+  }
 }

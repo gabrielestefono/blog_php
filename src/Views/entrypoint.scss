@@ -7,10 +7,11 @@
 @use "../Components/Pages/Visitor/Category/Title/Title.scss" as *;
 @use "../Components/Pages/Visitor/Category/Destaque/Destaque.scss" as *;
 @use "../Components/Pages/Visitor/Category/LatestPosts/LatestPosts.scss" as *;
+@use "../Components/Pages/Visitor/Post/Info/Info.scss" as *;
 
 // Reset do css
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;

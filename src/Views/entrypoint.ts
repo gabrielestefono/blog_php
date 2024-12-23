@@ -1,5 +1,5 @@
-import {Header} from "../Components/Layout/Header/Header";
+import { Header } from "../Components/Layout/Header/Header";
 
 addEventListener("DOMContentLoaded", () => {
-    new Header(); // NOSONAR
-})
+  new Header(); // NOSONAR
+});
