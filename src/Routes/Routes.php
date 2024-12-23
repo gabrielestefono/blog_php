@@ -18,6 +18,7 @@ class Routes
             '/' => 'index.php',
             '/category' => 'category.php',
             '/post' => 'post.php',
+            '/author' => 'author.php',
         ];
 
         $path = $routes[$request_uri] ?? 'Errors/404.php';

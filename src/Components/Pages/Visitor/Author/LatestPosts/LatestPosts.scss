@@ -1,0 +1,20 @@
+.latest-posts {
+  width: 100%;
+  margin-top: .5rem;
+  display: flex;
+  flex-direction: column;
+
+  > h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 28px;
+    margin-block: 2rem;
+  }
+
+  > div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 20px;
+    column-gap: 20px;
+  }
+}
