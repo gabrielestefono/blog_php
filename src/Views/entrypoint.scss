@@ -1,12 +1,12 @@
 @use "../Components/Layout/Header/Header" as *;
 @use "./Layout/Visitor.scss" as *;
-@use "../Components/Pages/Dashboard/Destaque/Destaque.scss" as *;
+@use "../Components/Pages/Visitor/Dashboard/Destaque/Destaque.scss" as *;
 @use "../Components/Shared/Post.scss" as *;
-@use "../Components/Pages/Dashboard/LatestPosts/LatestPosts.scss" as *;
+@use "../Components/Pages/Visitor/Dashboard/LatestPosts/LatestPosts.scss" as *;
 @use "../Components/Layout/Footer/Footer.scss" as *;
-@use "../Components/Pages/Category/Title/Title.scss" as *;
-@use "../Components/Pages/Category/Destaque/Destaque.scss" as *;
-@use "../Components/Pages/Category/LatestPosts/LatestPosts.scss" as *;
+@use "../Components/Pages/Visitor/Category/Title/Title.scss" as *;
+@use "../Components/Pages/Visitor/Category/Destaque/Destaque.scss" as *;
+@use "../Components/Pages/Visitor/Category/LatestPosts/LatestPosts.scss" as *;
 
 // Reset do css
 
