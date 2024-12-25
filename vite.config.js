@@ -7,6 +7,8 @@ export default defineConfig({
             input: {
                 js: './src/Views/entrypoint.ts',
                 css: './src/Views/entrypoint.scss',
+                adminJs: './src/Views/entrypoint-admin.ts',
+                adminCss: './src/Views/entrypoint-admin.scss',
             },
             output: {
                 entryFileNames: 'js/entrypoint.js',

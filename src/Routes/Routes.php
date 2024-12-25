@@ -21,8 +21,20 @@ class Routes
             '/author' => 'author.php',
         ];
 
-        $path = $routes[$request_uri] ?? 'Errors/404.php';
+        $routesAdmin = [
+            '/admin' => 'index.php',
+        ];
 
-        View::view($path);
+        if(isset($routes[$request_uri])){
+            View::pagesView($routes[$request_uri]);
+            return;
+        }
+        
+        if(isset($routesAdmin[$request_uri])){
+            View::adminView($routesAdmin[$request_uri]);
+            return;
+        }
+        
+        View::errorView('404.php');
     }
 }

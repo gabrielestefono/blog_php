@@ -12,5 +12,7 @@
             "email": "gabrielestefono@hotmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "almasaeed2010/adminlte": "~3.2"
+    }
 }

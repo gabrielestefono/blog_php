@@ -22,20 +22,50 @@ trait View
         }
     }
 
-    public static function view(string $path, ?array $data = [])
+    public static function adminView(string $path, ?array $data = [])
+    {
+        self::includeFile($path, 'Views/Pages/Admins', $data);
+    }
+
+    public static function errorView(string $path, ?array $data = [])
+    {
+        self::includeFile($path, 'Views/Pages/Errors', $data);
+    }
+
+    public static function layoutView(string $path, ?array $data = [])
+    {
+        self::includeFile($path, 'Views/Layouts', $data);
+    }
+
+    public static function pagesView(string $path, ?array $data = [])
     {
         self::includeFile($path, 'Views/Pages', $data);
     }
 
-    public static function layout(string $path, ?array $data = [])
+    public static function componentLayoutAdmin(string $path, ?array $data = [])
     {
-        self::includeFile($path, 'Components/Layout', $data);
+        self::includeFile($path, 'Components/Layout/Admin', $data);
     }
 
-    public static function component(string $path, ?array $data = [])
+    public static function componentLayoutVisitor(string $path, ?array $data = [])
     {
-        self::includeFile($path, 'Components', $data);
+        self::includeFile($path, 'Components/Layout/Visitor', $data);
     }
+
+    public static function componentShared(string $path, ?array $data = [])
+    {
+        self::includeFile($path, 'Components/Shared', $data);
+    }
+
+    // public static function layout(string $path, ?array $data = [])
+    // {
+    //     self::includeFile($path, 'Components/Layout/Visitor', $data);
+    // }
+
+    // public static function adminLayout(string $path, ?array $data = [])
+    // {
+    //     self::includeFile($path, 'Components/Layout/Admin', $data);
+    // }
 
     public static function componentChild(string $path, ?array $data = [])
     {
