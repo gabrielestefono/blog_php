@@ -1,3 +1,1 @@
-
-addEventListener("DOMContentLoaded", () => {
-});
+addEventListener("DOMContentLoaded", () => {});

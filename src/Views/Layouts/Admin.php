@@ -11,9 +11,9 @@ use App\Helpers\View; ?>
     <title>Blog - Admin</title>
     <?php
         // Load CSS
-        $cssPath = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/css/entrypoint-admin.css';
+        $cssPath = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/css/entrypoint2.css';
         if (file_exists($cssPath)) {
-            echo '<link rel="stylesheet" href="/public/assets/css/entrypoint-admin.css">';
+            echo '<link rel="stylesheet" href="/public/assets/css/entrypoint2.css">';
         }
     ?>
 
@@ -22,7 +22,12 @@ use App\Helpers\View; ?>
 
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
+
+    <!-- JQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body class="dark-mode layout-fixed">
@@ -32,9 +37,9 @@ use App\Helpers\View; ?>
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
     <?php
         // Load JS
-        $jsPath = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/js/entrypoint-admin.js';
+        $jsPath = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/js/entrypoint3.js';
         if (file_exists($jsPath)) {
-            echo '<script type="module" src="/public/assets/js/entrypoint-admin.js"></script>';
+            echo '<script type="module" src="/public/assets/js/entrypoint3.js"></script>';
         }
     ?>
 </body>
