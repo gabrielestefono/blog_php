@@ -1,3 +1,7 @@
+<?php
+    use App\Config\Config;
+?>
+
 <header class="header">
     <a href="/" class="left">
         <span>WB</span>
@@ -13,7 +17,7 @@
         <div>
             <input type="text" placeholder="Search">
             <button>
-                <img src="/public/assets/images/search-outline.svg" alt="Ícone de pesquisa">
+                <img src="<?php echo Config::getBaseUrl() . '/public/assets/images/search-outline.svg';?>" alt="Ícone de pesquisa">
             </button>
         </div>
         <button class="light" id="change-theme">

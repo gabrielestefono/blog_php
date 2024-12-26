@@ -23,6 +23,8 @@ class Routes
 
         $routesAdmin = [
             '/admin' => 'index.php',
+            '/admin/posts' => 'posts.php',
+            '/admin/profile' => 'profile.php',
         ];
 
         if(isset($routes[$request_uri])){

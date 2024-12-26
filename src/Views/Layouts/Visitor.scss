@@ -4,9 +4,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh;
 
     .content{
         max-width: 76rem;
         width: 76rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
     }
 }

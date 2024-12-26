@@ -2,5 +2,5 @@
 
 use App\Helpers\View;
 
-View::componentChild('./Pages/Visitor/Post/Info/Info.php');
-View::view('../Layout/Visitor.php', ["titulo" => "WeBest - Início"]);
+View::componentChildVisitor('Post/Info/Info.php');
+View::layoutView('Visitor.php', ["titulo" => "WeBest - Início"]);

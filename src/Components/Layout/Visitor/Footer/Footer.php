@@ -1,3 +1,7 @@
+<?php
+    use App\Config\Config;
+?>
+
 <footer class="footer">
     <div>
         <div>
@@ -37,7 +41,7 @@
                 <div>
                     <label>
                         <input type="text" placeholder="Your Email">
-                        <img src="public/assets/images/email.svg" alt="Ícone de email">
+                        <img src="<?php echo Config::getBaseUrl() .  'public/assets/images/email.svg'; ?>" alt="Ícone de email">
                     </label>
                     <button>Subscribe</button>
                 </div>
@@ -46,7 +50,7 @@
         <div>
             <div>
                 <div>
-                    <img src="public/assets/images/logo.svg" alt="">
+                    <img src="<?php echo Config::getBaseUrl() . 'public/assets/images/logo.svg'?>" alt="">
                 </div>
                 <div>
                     <h3>Meta<strong>Blog</strong></h3>

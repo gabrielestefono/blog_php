@@ -1,6 +1,4 @@
-<?php
-
-use App\Helpers\View; ?>
+<?php use App\Helpers\View; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 

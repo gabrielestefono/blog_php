@@ -2,7 +2,7 @@
 
 use App\Helpers\View;
 
-View::componentChild('./Pages/Visitor/Category/Title/Title.php');
-View::componentChild('./Pages/Visitor/Category/Destaque/Destaque.php');
-View::componentChild('./Pages/Visitor/Category/LatestPosts/LatestPosts.php');
-View::view('../Layout/Visitor.php', ["titulo" => "WeBest - Categorias"]);
+View::componentChildVisitor('Category/Title/Title.php');
+View::componentChildVisitor('Category/Destaque/Destaque.php');
+View::componentChildVisitor('Category/LatestPosts/LatestPosts.php');
+View::layoutView('Visitor.php', ["titulo" => "WeBest - Categorias"]);
