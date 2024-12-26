@@ -1,12 +1,10 @@
 # Localizacao _root_
-version: '3.8'
-
 services:
   database:
     build:
       context: ./Docker/sql
       dockerfile: Dockerfile
-    container_name: mysql_container
+    container_name: mysql
     ports:
       - "3310:3306"
     volumes:
@@ -21,7 +19,7 @@ services:
     build:
       context: ./Docker/project
       dockerfile: Dockerfile
-    container_name: php_container
+    container_name: blog
     ports:
       - "8080:80"
     volumes:
