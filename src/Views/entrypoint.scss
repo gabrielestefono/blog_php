@@ -13,6 +13,8 @@
 @use "../Components/Shared/404/404.scss" as *;
 
 // Reset do css
+// TODO: Unir admin e visitante nesse mesmo arquivo
+// A ideia é botar uma classe no body para diferenciar os dois
 
 * {
   padding: 0;
