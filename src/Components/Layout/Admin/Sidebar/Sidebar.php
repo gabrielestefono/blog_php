@@ -1,13 +1,29 @@
 <?php
 
-use App\Config\Config; ?>
-<?php
-  $routesAdmin = [
-    '/admin' => 'Dashboard',
-    '/admin/posts' => 'Posts',
-  ];
+use App\Classes\RouteClass;
+use App\Config\Config;
 
-  $currentRoute = $_SERVER['REQUEST_URI'];
+?>
+<?php
+
+$routesClasses = [
+  new RouteClass('/admin', 'Dashboard', true),
+  new RouteClass('/admin/posts', 'Posts', true),
+  new RouteClass('/admin/posts/create', 'Posts', false),
+  new RouteClass('/admin/posts/edit/{id}', 'Posts', false),
+];
+
+$currentRoute = $_SERVER['REQUEST_URI'];
+
+$activeRouteClass = null;
+
+foreach ($routesClasses as $route) {
+  if ($route->route === $currentRoute) {
+    $activeRouteClass = $route;
+    break;
+  }
+}
+
 ?>
 
 <!-- Main Sidebar Container -->
@@ -31,17 +47,19 @@ use App\Config\Config; ?>
     </div>
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview">
-        <?php foreach ($routesAdmin as $route => $name): ?>
-          <li class="nav-item">
-            <a href="<?php echo $route; ?>" class="nav-link <?php echo $currentRoute === $route ? 'active' : ''; ?>">
-              <?php if ($currentRoute === $route): ?>
-                <i class="fas fa-circle nav-icon"></i>
-              <?php else: ?>
-                <i class="far fa-circle nav-icon"></i>
-              <?php endif; ?>
-              <p><?php echo $name; ?></p>
-            </a>
-          </li>
+        <?php foreach ($routesClasses as $index => $routeClass): ?>
+          <?php if ($routeClass->show): ?>
+            <li class="nav-item">
+              <a href="<?php echo $routeClass->route; ?>" class="nav-link <?php echo $routeClass->name === $activeRouteClass->name  ? 'active' : ''; ?>">
+                <?php if ($routeClass->name === $activeRouteClass->name): ?>
+                  <i class="fas fa-circle nav-icon"></i>
+                <?php else: ?>
+                  <i class="far fa-circle nav-icon"></i>
+                <?php endif; ?>
+                <p><?php echo $routeClass->name; ?></p>
+              </a>
+            </li>
+          <?php endif; ?>
         <?php endforeach; ?>
       </ul>
     </nav>
