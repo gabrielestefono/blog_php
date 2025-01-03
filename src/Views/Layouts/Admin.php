@@ -26,9 +26,15 @@
 
     <!-- Bootstrap -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Choices.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+
+    <!-- Easy MarkDown Editor -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css"/>
 </head>
 
-<body class="dark-mode layout-fixed">
+<body class="layout-fixed admin">
     <div class="wrapper">
         <?php View::componentLayoutAdmin('Header/Header.php') ?>
         <div class="preloader">
@@ -38,7 +44,14 @@
             <?php View::renderComponents() ?>
         </div>
     </div>
+    <!-- Choices.js -->
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <!-- Admin LTE -->
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+    <!-- Easy MarkDown Editor -->
+    <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php
     // Load JS
     $jsPath = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/js/entrypoint3.js';

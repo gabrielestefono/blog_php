@@ -26,7 +26,7 @@
         rel="stylesheet">
 </head>
 
-<body>
+<body class="visitor">
     <main class="main">
         <div class="content">
             <?php View::componentLayoutVisitor('Header/Header.php') ?>
