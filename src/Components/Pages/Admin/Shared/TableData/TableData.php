@@ -105,7 +105,7 @@ $tableData->data[14]->created_at = "15/01/2021";
                         <td class="text-center"><?php echo $data->created_at; ?></td>
                         <td class="text-center">
                             <a href="/admin/posts/edit/<?php echo $data->id; ?>" class="btn btn-secondary btn-sm">Editar</a>
-                            <button type="button" class="btn btn-danger btn-sm delete-button" id="delete-post-<?php echo $data->id; ?>">Excluir</button>
+                            <button type="button" class="btn btn-danger btn-sm delete-button" id="button-delete-<?php echo $data->id; ?>">Excluir</button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -122,31 +122,4 @@ $tableData->data[14]->created_at = "15/01/2021";
             <li class="page-item"><a class="page-link" href="#">»</a></li>
         </ul>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const deleteButtons = document.querySelectorAll('.delete-button');
-            deleteButtons.forEach((button) => {
-                button.addEventListener('click', function() {
-                    Swal.fire({
-                        title: 'Você tem certeza?',
-                        text: "Você não poderá reverter isso!",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Sim, excluir!',
-                        cancelButtonText: 'Cancelar'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            Swal.fire(
-                                'Excluído!',
-                                'Sua postagem foi excluída.',
-                                'success'
-                            );
-                        }
-                    });
-                });
-            });
-        });
-    </script>
 </div>

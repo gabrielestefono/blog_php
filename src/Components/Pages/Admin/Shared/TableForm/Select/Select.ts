@@ -1,17 +1,14 @@
 import Choices from "choices.js";
-import { HTMLElementException } from "../../../../../../ts/errors/HTMLElementException";
 
 export class Select {
-  private readonly _selectElement: HTMLSelectElement;
+  private readonly _selectElement: HTMLSelectElement | undefined;
 
   constructor(name: string) {
     const changeThemeButton = document.getElementById(name);
-    if (changeThemeButton instanceof HTMLSelectElement) {
+    if (changeThemeButton && changeThemeButton instanceof HTMLSelectElement) {
       this._selectElement = changeThemeButton;
       this.initialize();
-      return;
     }
-    throw new HTMLElementException("Select não encontrado!", 404);
   }
 
   public initialize(): Choices {
