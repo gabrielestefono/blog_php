@@ -65,12 +65,9 @@ class Routes
 
     public static function getTypeRoute(): string
     {
-        if (in_array(self::getActiveRoute(), array_keys(self::$routes))) {
-            return 'visitor';
-        }
-        if (in_array(self::getActiveRoute(), array_keys(self::$routesAdmin))) {
+        if (strpos(self::getActiveRoute(), '/admin') === 0) {
             return 'admin';
         }
-        return '404';
+        return 'visitor';
     }
 }

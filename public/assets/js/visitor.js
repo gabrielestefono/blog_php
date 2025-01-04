@@ -605,47 +605,31 @@ addEventListener("DOMContentLoaded", ()=>{
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Header", ()=>Header);
-var _htmlelementException = require("../../../../ts/errors/HTMLElementException");
 class Header {
-    constructor(){
+    /**
+     * Cria uma instância de Header.
+     */ constructor(){
         const changeThemeButton = document.getElementById("change-theme");
-        if (changeThemeButton instanceof HTMLButtonElement) {
+        if (changeThemeButton && changeThemeButton instanceof HTMLButtonElement) {
             this._changeThemeButton = changeThemeButton;
-            this.initialize();
-            return;
+            this._initialize();
         }
-        throw new (0, _htmlelementException.HTMLElementException)("Bot\xe3o n\xe3o encontrado!", 404);
     }
-    initialize() {
+    /**
+     * Inicializa o componente.
+     */ _initialize() {
         this._changeThemeButton.addEventListener("click", ()=>this._changeTheme());
     }
-    _changeTheme() {
+    /**
+     * Altera o tema da página.
+     * @private
+     */ _changeTheme() {
         const buttonClass = this._changeThemeButton.className;
         if (buttonClass === 'light') {
             this._changeThemeButton.className = 'dark';
             return;
         }
         this._changeThemeButton.className = 'light';
-    }
-}
-
-},{"../../../../ts/errors/HTMLElementException":"lC5w6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lC5w6":[function(require,module,exports,__globalThis) {
-/**
- * Erro customizado para o tipo de usuário
- * @class UserTypeException
- * @extends {Error}
- * @param {string} message Mensagem de erro
- * @param {number} statusCode Código de status HTTP
- * @example
- * throw new UserTypeException("Não foi possível identificar o tipo de usuário", 500);
- */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "HTMLElementException", ()=>HTMLElementException);
-class HTMLElementException extends Error {
-    constructor(message, statusCode){
-        super(message);
-        this.name = this.constructor.name;
-        this.statusCode = statusCode;
     }
 }
 

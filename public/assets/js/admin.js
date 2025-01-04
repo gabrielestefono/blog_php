@@ -11320,14 +11320,19 @@ parcelHelpers.export(exports, "Select", ()=>Select);
 var _choicesJs = require("choices.js");
 var _choicesJsDefault = parcelHelpers.interopDefault(_choicesJs);
 class Select {
-    constructor(name){
+    /**
+   * Cria uma instância de Select.
+   * @param name O id do elemento select
+   */ constructor(name){
         const changeThemeButton = document.getElementById(name);
         if (changeThemeButton && changeThemeButton instanceof HTMLSelectElement) {
             this._selectElement = changeThemeButton;
             this.initialize();
         }
     }
-    initialize() {
+    /**
+   * Inicializa o componente.
+   */ initialize() {
         return new (0, _choicesJsDefault.default)(this._selectElement, {
             removeItemButton: true,
             renderChoiceLimit: -1,

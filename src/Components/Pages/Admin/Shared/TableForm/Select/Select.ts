@@ -1,8 +1,16 @@
 import Choices from "choices.js";
 
 export class Select {
+  /**
+   * O elemento select.
+   * @private
+   */
   private readonly _selectElement: HTMLSelectElement | undefined;
 
+  /**
+   * Cria uma instância de Select.
+   * @param name O id do elemento select
+   */
   constructor(name: string) {
     const changeThemeButton = document.getElementById(name);
     if (changeThemeButton && changeThemeButton instanceof HTMLSelectElement) {
@@ -11,6 +19,9 @@ export class Select {
     }
   }
 
+  /**
+   * Inicializa o componente.
+   */
   public initialize(): Choices {
     return new Choices(this._selectElement, {
       removeItemButton: true,
