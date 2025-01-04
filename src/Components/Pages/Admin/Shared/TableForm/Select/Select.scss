@@ -1,0 +1,50 @@
+// TODO: Refatorar isso aqui
+
+body.admin .container-choice {
+  width: 100%;
+  box-sizing: content-box;
+  padding: 7.5px;
+}
+
+body.admin .choices {
+  width: 100%;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  background-color: #ffffff;
+}
+
+body.admin .choices__inner {
+  background-color: transparent;
+  border: none;
+}
+
+body.admin .choices__input {
+  color: #fff;
+  background-color: #ffffff;
+  border: none;
+}
+
+body.admin .choices__list {
+  background-color: #ffffff;
+  border: none;
+}
+
+body.admin .choices__item {
+  color: #495057;
+}
+
+body.admin .is-highlighted {
+  background-color: #007bff !important;
+  color: #ffffff;
+}
+
+body.admin .is-highlighted::after {
+  color: #ffffff;
+  opacity: 1 !important;
+}
+
+body.admin .has-no-choices {
+  color: #495057;
+  background-color: #ffffff;
+  border: 1px solid #ced4da;
+}

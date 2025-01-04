@@ -1,0 +1,4 @@
+@use "../Components/Layout/Admin/Navbar/Navbar.scss" as *;
+@use "../Components/Pages/Admin/Shared/TableForm/Select/Select.scss" as *;
+@import url('../../node_modules/admin-lte/dist/css/adminlte.min.css');
+@import url('../../node_modules/choices.js/public/assets/styles/choices.min.css');

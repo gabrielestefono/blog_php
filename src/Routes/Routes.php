@@ -58,7 +58,19 @@ class Routes
         View::errorView('404.php');
     }
 
-    public static function getActiveRoute(): string {
+    public static function getActiveRoute(): string
+    {
         return $_SERVER['REQUEST_URI'];
+    }
+
+    public static function getTypeRoute(): string
+    {
+        if (in_array(self::getActiveRoute(), array_keys(self::$routes))) {
+            return 'visitor';
+        }
+        if (in_array(self::getActiveRoute(), array_keys(self::$routesAdmin))) {
+            return 'admin';
+        }
+        return '404';
     }
 }

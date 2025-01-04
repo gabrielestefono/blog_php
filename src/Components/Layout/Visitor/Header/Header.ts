@@ -1,3 +1,5 @@
+import { HTMLElementException } from "../../../../ts/errors/HTMLElementException";
+
 export class Header {
     private readonly _changeThemeButton: HTMLButtonElement;
 
@@ -8,7 +10,7 @@ export class Header {
             this.initialize();
             return;
         }
-        throw new Error('Botão não encontrado!');
+        throw new HTMLElementException('Botão não encontrado!', 404);
     }
 
     public initialize(): void {

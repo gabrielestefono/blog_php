@@ -12,6 +12,7 @@
 # Ignorar arquivos de IDEs
 .idea/
 .vscode
+.parcel-cache
 
 # Ignorar outros arquivos de sistema
 *.DS_Store
