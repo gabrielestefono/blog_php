@@ -2,6 +2,8 @@
 
 namespace App\Classes;
 
+// TODO: Documentar essa classe
+
 use App\Routes\Routes;
 
 class RouteClass{

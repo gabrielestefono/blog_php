@@ -2,7 +2,14 @@
 
 namespace App\Routes;
 
+use App\Controllers\Admin\ProfileController;
 use App\Helpers\View;
+use App\Controllers\Admin\PostController;
+use App\Controllers\Admin\DashboardController;
+use App\Controllers\Visitors\PostController as VisitorsPostController;
+use App\Controllers\Visitors\AuthorController as VisitorsAuthorController;
+use App\Controllers\Visitors\CategoryController as VisitorsCategoryController;
+use App\Controllers\Visitors\DashboardController as VisitorsDashboardController;
 
 // TODO: Documentar essa classe
 
@@ -10,50 +17,47 @@ class Routes
 {
     use View;
 
-    public static $routes = [
-        '/' => 'index.php',
-        '/category' => 'category.php',
-        '/post' => 'post.php',
-        '/author' => 'author.php',
+    private static $routes = [
+        '/' => [VisitorsDashboardController::class, 'index'],
+        '/category' => [VisitorsCategoryController::class, 'index'],
+        '/post' => [VisitorsPostController::class, 'index'],
+        '/author' => [VisitorsAuthorController::class, 'index'],
     ];
 
-    public static $routesAdmin = [
-        '/admin' => 'index.php',
-        '/admin/posts' => 'posts/posts.php',
-        '/admin/posts/create' => 'posts/create.php',
-        '/admin/posts/edit/{id}' => 'posts/edit.php',
-        '/admin/profile' => 'profile.php',
+    private static $routesAdmin = [
+        '/admin' => [DashboardController::class, 'index'],
+        '/admin/posts' => [PostController::class, 'index'],
+        '/admin/posts/create' => [PostController::class, 'create'],
+        '/admin/posts/edit/{id}' => [PostController::class, 'edit'],
+        '/admin/profile' => [ProfileController::class, 'index'],
     ];
+
+    private static function matchRoute($routes, $uri)
+    {
+        foreach ($routes as $pattern => $file) {
+            $regex = preg_replace('#\{[a-zA-Z_]+\}#', '([^/]+)', $pattern);
+            if (preg_match('#^' . $regex . '$#', $uri, $matches)) {
+                preg_match_all('#\{([a-zA-Z_]+)\}#', $pattern, $paramNames);
+                $params = array_combine($paramNames[1], array_slice($matches, 1));
+                $_GET = array_merge($_GET, $params);
+                return $file;
+            }
+        }
+        return null;
+    }
 
     public static function routes(): void
     {
         $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-        $routes = self::$routes;
+        $routes = array_merge(self::$routes, self::$routesAdmin);
+        $file = self::matchRoute($routes, $request_uri);
 
-        // Função para buscar rota com suporte a parâmetros
-        $matchRoute = function ($routes, $uri) {
-            foreach ($routes as $pattern => $file) {
-                $regex = preg_replace('#\{[a-zA-Z_]+\}#', '([^/]+)', $pattern);
-                if (preg_match('#^' . $regex . '$#', $uri, $matches)) {
-                    preg_match_all('#\{([a-zA-Z_]+)\}#', $pattern, $paramNames);
-                    $params = array_combine($paramNames[1], array_slice($matches, 1));
-                    $_GET = array_merge($_GET, $params);
-                    return $file;
-                }
-            }
-            return null;
-        };
-
-        // Verifica rotas comuns
-        if (isset($routes[$request_uri])) {
-            View::pagesView(self::$routes[$request_uri]);
-            return;
-        }
-
-        // Verifica rotas dinâmicas de admin
-        if ($file = $matchRoute(self::$routesAdmin, $request_uri)) {
-            View::adminView($file);
+        if ($file && gettype($file) === 'array') {
+            $controller = $file[0];
+            $metodo = $file[1];
+            $controller = new $controller();
+            $controller->$metodo();
             return;
         }
 
