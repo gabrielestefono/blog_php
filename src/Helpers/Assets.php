@@ -4,10 +4,12 @@ namespace App\Helpers;
 
 use App\Routes\Routes;
 
-// TODO: Documentar essa classe
-
 class Assets
 {
+    /**
+     * Retornar o caminho do arquivo css
+     * @return string
+     */
     public static function css(): string
     {
         $filename = Routes::getTypeRoute() === 'admin' ? 'admin.css' : 'visitor.css';
@@ -18,6 +20,10 @@ class Assets
         return '';
     }
 
+    /**
+     * Retornar o caminho do arquivo js
+     * @return string
+     */
     public static function js(): string
     {
         $filename = Routes::getTypeRoute() === 'admin' ? 'admin.js' : 'visitor.js';

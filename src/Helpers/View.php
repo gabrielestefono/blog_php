@@ -5,6 +5,8 @@ namespace App\Helpers;
 use App\Errors\ViewNotFoundException;
 use App\Routes\Routes;
 
+// TODO: Refatorar
+
 trait View
 {
     private static array $components = [];
