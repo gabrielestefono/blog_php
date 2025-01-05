@@ -4,6 +4,8 @@ namespace App\Errors;
 
 use Exception;
 
+// TODO: Documentar essa classe
+
 class ViewNotFoundException extends Exception
 {
     public function __construct(string $message)

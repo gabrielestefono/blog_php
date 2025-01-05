@@ -3,16 +3,6 @@
    yarn add @floating-ui/dom@^1.6.12
    ```
 
-3. Instalar `bootstrap`:
-   ```bash
-   yarn add bootstrap@^5.3.3
-   ```
-
-4. Instalar `choices.js`:
-   ```bash
-   yarn add choices.js@^11.0.3
-   ```
-
 5. Instalar `jquery`:
    ```bash
    yarn add jquery@^3.7.1

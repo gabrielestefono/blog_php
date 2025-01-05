@@ -7,3 +7,14 @@ body.visitor .error-404{
     height: 100%;
     flex-grow: 1;
 }
+
+body.admin .error-404{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-grow: 1;
+    min-height: 500px;
+}

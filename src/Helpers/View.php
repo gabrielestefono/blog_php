@@ -3,6 +3,7 @@
 namespace App\Helpers;
 
 use App\Errors\ViewNotFoundException;
+use App\Routes\Routes;
 
 trait View
 {
@@ -69,7 +70,10 @@ trait View
      */
     public static function errorView(string $path, ?array $data = [])
     {
-        self::includeFile($path, 'Views/Errors', $data);
+        if(Routes::getTypeRoute() === 'admin'){
+            self::includeFile($path, 'Views/Errors/Admin', $data);
+        }
+        self::includeFile($path, 'Views/Errors/Visitor', $data);
     }
 
     /**

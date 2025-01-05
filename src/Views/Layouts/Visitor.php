@@ -1,7 +1,8 @@
 <?php
-    use App\Config\Config;
-    use App\Helpers\Assets;
-    use App\Helpers\View;
+
+use App\Config\Config;
+use App\Helpers\Assets;
+use App\Helpers\View;
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +12,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $titulo; ?></title>
-    <!-- // TODO: Trocar esse favicon temporário -->
     <link rel="shortcut icon" href="<?php echo Config::getBaseUrl() . 'public/assets/icons/favicon.ico'; ?>" type="image/x-icon">
     <?php echo Assets::css(); ?>
 </head>

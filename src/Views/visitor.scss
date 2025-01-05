@@ -11,16 +11,16 @@
 @use "../Components/Pages/Visitor/Post/Info/Info.scss" as *;
 @use "../Components/Pages/Visitor/Author/LatestPosts/LatestPosts.scss" as *;
 @use "../Components/Pages/Visitor/Author/Info/Info.scss" as *;
-@use "../Components/Shared/404/404.scss" as *; // TODO: Definir se é visitor ou admin
+@use "../Components/Shared/404/404.scss" as *;
 
 // Admin
 @use "../Components/Layout/Admin/Navbar/Navbar.scss" as *;
 @use "../Components/Pages/Admin/Shared/TableForm/Select/Select.scss" as *;
 
 // Imports
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('../../node_modules/admin-lte/dist/css/adminlte.min.css');
-@import url('../../node_modules/choices.js/public/assets/styles/choices.min.css');
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("../../node_modules/admin-lte/dist/css/adminlte.min.css");
+@import url("../../node_modules/choices.js/public/assets/styles/choices.min.css");
 
 // Reset do css
 

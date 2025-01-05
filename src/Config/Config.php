@@ -5,6 +5,8 @@ namespace App\Config;
 use App\Errors\EnvironmentVariableNotFoundException;
 use Dotenv\Dotenv;
 
+// TODO: Documentar essa classe
+
 class Config
 {
     private static string $baseUrl;

@@ -47398,6 +47398,17 @@ body.visitor .error-404 {
   display: flex;
 }
 
+body.admin .error-404 {
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  min-height: 500px;
+  display: flex;
+}
+
 .link-to-button {
   background-color: #0000;
   border: none;

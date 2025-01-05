@@ -4,6 +4,8 @@ namespace App\Helpers;
 
 use App\Routes\Routes;
 
+// TODO: Documentar essa classe
+
 class Assets
 {
     public static function css(): string

@@ -32,15 +32,19 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.9.0",
     "admin-lte": "^3.2",
     "bootstrap": "^5.3.3",
     "choices.js": "^11.0.3",
+    "easymde": "^2.18.0",
+    "jquery": "3.7.1",
     "sweetalert2": "^11.15.10",
     "typescript": "^5.7.2"
   },
   "devDependencies": {
     "@parcel/config-default": "^2.13.3",
     "@parcel/transformer-sass": "^2.13.3",
+    "@types/jquery": "^3.5.32",
     "@types/node": "^22.10.5",
     "parcel": "^2.13.3",
     "ts-node": "^10.9.2"

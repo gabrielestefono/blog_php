@@ -4,6 +4,8 @@ namespace App\Routes;
 
 use App\Helpers\View;
 
+// TODO: Documentar essa classe
+
 class Routes
 {
     use View;

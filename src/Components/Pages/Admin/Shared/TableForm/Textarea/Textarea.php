@@ -9,10 +9,3 @@
             name="<?php echo $name; ?>"></textarea>
     </div>
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const easymde = new EasyMDE({
-            element: document.getElementById('my-text-area'),
-        });
-    });
-</script>
