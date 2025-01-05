@@ -21,9 +21,9 @@ class Controller
         }
     }
 
-    public function view(string $path)
+    public function view(string $path, ?array $data = [])
     {
         $path = str_replace('.', '/', $path);
-        self::includeFile("{$path}.php");
+        self::includeFile("{$path}.php", $data);
     }
 }

@@ -6,6 +6,6 @@
             type="text"
             class="form-control"
             placeholder="<?php echo $placeholder; ?>"
-            name="<?php echo $name; ?>"></textarea>
+            name="<?php echo $name; ?>"><?php echo $value ?? ''; ?></textarea>
     </div>
 </div>

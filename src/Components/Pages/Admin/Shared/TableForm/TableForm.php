@@ -11,13 +11,15 @@ use App\Helpers\View;
                     'label' => 'Título da Publicação',
                     'placeholder' => 'Digite o título da publicação',
                     'name' => 'title',
-                    'halfSize' => false
+                    'halfSize' => false,
+                    'value' => $tableData->title ?? null
                 ]);
                 View::componentPagesAdmin('Shared/TableForm/Textarea/Textarea.php', [
                     'label' => 'Texto da Publicação',
                     'placeholder' => 'Digite o texto da publicação',
                     'name' => 'description',
-                    'halfSize' => false
+                    'halfSize' => false,
+                    'value' => $tableData->description ?? null
                 ]);
                 View::componentPagesAdmin('Shared/TableForm/Select/Select.php', [
                     'label' => 'Selecione uma Categoria',
@@ -46,7 +48,8 @@ use App\Helpers\View;
                         '20' => 'Categoria 20'
                     ],
                     'halfSize' => false,
-                    'multiple' => false
+                    'multiple' => false,
+                    'value' => $tableData->category ?? null
                 ]);
             ?>
         </div>

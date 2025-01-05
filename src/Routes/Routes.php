@@ -17,6 +17,8 @@ class Routes
 {
     use View;
 
+    private static $params = [];
+
     private static $routes = [
         '/' => [VisitorsDashboardController::class, 'index'],
         '/category' => [VisitorsCategoryController::class, 'index'],
@@ -32,6 +34,15 @@ class Routes
         '/admin/profile' => [ProfileController::class, 'index'],
     ];
 
+    private static function typingParams($params): array
+    {
+        $paramsTyped = [];
+        foreach ($params as $key => $value) {
+            $paramsTyped[$key] = is_numeric($value) ? (int) $value : $value;
+        }
+        return $paramsTyped;
+    }
+
     private static function matchRoute($routes, $uri)
     {
         foreach ($routes as $pattern => $file) {
@@ -39,7 +50,8 @@ class Routes
             if (preg_match('#^' . $regex . '$#', $uri, $matches)) {
                 preg_match_all('#\{([a-zA-Z_]+)\}#', $pattern, $paramNames);
                 $params = array_combine($paramNames[1], array_slice($matches, 1));
-                $_GET = array_merge($_GET, $params);
+                self::$params = array_merge($_GET, $params);
+                self::$params = self::typingParams(self::$params);
                 return $file;
             }
         }
@@ -57,7 +69,7 @@ class Routes
             $controller = $file[0];
             $metodo = $file[1];
             $controller = new $controller();
-            $controller->$metodo();
+            $controller->$metodo(...array_values(self::$params));
             return;
         }
 
