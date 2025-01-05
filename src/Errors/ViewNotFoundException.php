@@ -4,10 +4,15 @@ namespace App\Errors;
 
 use Exception;
 
-// TODO: Documentar essa classe
-
+/**
+ * Classe de exceção para quando a view não é encontrada.
+ */
 class ViewNotFoundException extends Exception
 {
+    /**
+     * Construtor da classe.
+     * @param string $message
+     */
     public function __construct(string $message)
     {
         $code = 404;
