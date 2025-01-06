@@ -4,7 +4,7 @@ use App\Helpers\View;
 ?>
 
 <div class="card-body">
-    <form>
+    <form action="/admin/post/store" method="post">
         <div class="form-group d-flex flex-wrap">
             <?php
                 View::componentPagesAdmin('Shared/TableForm/Input/Input.php', [
@@ -51,6 +51,7 @@ use App\Helpers\View;
                     'multiple' => false,
                     'value' => $tableData->category ?? null
                 ]);
+                View::componentPagesAdmin('Shared/TableForm/Button/Button.php', []);
             ?>
         </div>
     </form>

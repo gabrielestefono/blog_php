@@ -19,7 +19,7 @@
                         <td class="text-center"><?php echo $data->id; ?></td>
                         <td class="text-center"><?php echo $data->title; ?></td>
                         <td class="text-center"><?php echo $data->author; ?></td>
-                        <td class="text-center"><?php echo $data->created_at; ?></td>
+                        <td class="text-center"><?php echo $data->createdAt; ?></td>
                         <td class="text-center">
                             <a href="/admin/posts/edit/<?php echo $data->id; ?>" class="btn btn-secondary btn-sm">Editar</a>
                             <button type="button" class="btn btn-danger btn-sm delete-button" id="button-delete-<?php echo $data->id; ?>">Excluir</button>

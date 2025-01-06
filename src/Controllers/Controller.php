@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Config\BaseConfig;
+use App\Config\Config;
 use App\Errors\ViewNotFoundException;
 
 class Controller
@@ -25,5 +27,11 @@ class Controller
     {
         $path = str_replace('.', '/', $path);
         self::includeFile("{$path}.php", $data);
+    }
+
+    public function redirect(string $path)
+    {
+        header("Location: " . Config::getBaseUrl() . "{$path}");
+        exit;
     }
 }

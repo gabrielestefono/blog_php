@@ -29,9 +29,10 @@ class Routes
         $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
         $routes = array_merge(self::$routes, self::$routesAdmin);
-        $file = self::matchRoute($routes, $request_uri);
-
+        $file = self::matchRoute($routes, $request_uri, $_SERVER['REQUEST_METHOD']);
+        
         if ($file && gettype($file) === 'array') {
+            $file = self::checkMethod($file);
             $controller = $file[0];
             $metodo = $file[1];
             $controller = new $controller();
@@ -48,10 +49,10 @@ class Routes
      * @var array
      */
     private static $routes = [
-        '/' => [VisitorsDashboardController::class, 'index'],
-        '/category' => [VisitorsCategoryController::class, 'index'],
-        '/post' => [VisitorsPostController::class, 'index'],
-        '/author' => [VisitorsAuthorController::class, 'index'],
+        '/' => [VisitorsDashboardController::class, 'index', 'GET'],
+        '/category' => [VisitorsCategoryController::class, 'index', 'GET'],
+        '/post' => [VisitorsPostController::class, 'index', 'GET'],
+        '/author' => [VisitorsAuthorController::class, 'index', 'GET'],
     ];
 
     /**
@@ -60,10 +61,11 @@ class Routes
      * @var array
      */
     private static $routesAdmin = [
-        '/admin' => [DashboardController::class, 'index'],
-        '/admin/posts' => [PostController::class, 'index'],
-        '/admin/posts/create' => [PostController::class, 'create'],
-        '/admin/posts/edit/{id}' => [PostController::class, 'edit'],
-        '/admin/profile' => [ProfileController::class, 'index'],
+        '/admin' => [DashboardController::class, 'index', 'GET'],
+        '/admin/posts' => [PostController::class, 'index', 'GET'],
+        '/admin/posts/create' => [PostController::class, 'create', 'GET'],
+        '/admin/post/store' => [PostController::class, 'store', 'POST'],
+        '/admin/posts/edit/{id}' => [PostController::class, 'edit', 'GET'],
+        '/admin/profile' => [ProfileController::class, 'index', 'GET'],
     ];
 }

@@ -2,6 +2,7 @@
 
 namespace App\Helpers\Traits;
 
+use App\Errors\MethodNowAllowedException;
 use App\Helpers\View;
 
 trait RoutesHelper
@@ -34,19 +35,32 @@ trait RoutesHelper
      * @param string $uri
      * @return array | null
      */
-    private static function matchRoute($routes, $uri): array | null
+    private static function matchRoute($routes, $uri, $method): ?array
     {
         foreach ($routes as $pattern => $file) {
             $regex = preg_replace('#\{[a-zA-Z_]+\}#', '([^/]+)', $pattern);
             if (preg_match('#^' . $regex . '$#', $uri, $matches)) {
                 preg_match_all('#\{([a-zA-Z_]+)\}#', $pattern, $paramNames);
                 $params = array_combine($paramNames[1], array_slice($matches, 1));
-                self::$params = array_merge($_GET, $params);
+                self::$params = $method === 'GET' ? array_merge($_GET, $params) : array_merge($_POST, $params);
                 self::$params = self::typingParams(self::$params);
                 return $file;
             }
         }
         return null;
+    }
+
+    /**
+     * Método que verifica o método da requisição
+     * @param array $file
+     * @return array | null
+     */
+    private static function checkMethod($file): ?array
+    {
+        if ($file[2] === $_SERVER['REQUEST_METHOD']) {
+            return $file;
+        }
+        throw new MethodNowAllowedException('Método não permitido');
     }
 
     /**

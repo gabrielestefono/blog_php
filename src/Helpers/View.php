@@ -27,7 +27,7 @@ trait View
 
         $filePath = __DIR__ . "/../{$type}/" . ltrim($path, '/');
         if (file_exists($filePath)) {
-            include $filePath; // NOSONAR
+            require $filePath; // NOSONAR
         } else {
             throw new ViewNotFoundException("View not found: {$filePath}");
         }
