@@ -2,14 +2,9 @@
 
 namespace App\Mock;
 
-use stdClass;
-
 class MockPosts{
-    public static function listPosts(){
-        $tableData = new stdClass();
-        $tableData->title = "Título";
-        $tableData->columns = ["ID", "Título", "Autor", "Criado em", "Ações"];
-        $tableData->data = [
+    public static function listPosts(): array{
+        return [
             (object)[
                 "id" => 1,
                 "title" => "Post 1",
@@ -41,7 +36,6 @@ class MockPosts{
                 "createdAt" => "2021-01-05 00:00:00"
             ],
         ];
-        return $tableData;
     }
 
     public static function editPost(){

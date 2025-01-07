@@ -6,19 +6,19 @@ use App\Config\Config;
 ?>
 <?php
 
-$routesClasses = [
-  new RouteClass('/admin', 'Dashboard', true),
-  new RouteClass('/admin/posts', 'Posts', true),
-  new RouteClass('/admin/posts/create', 'Posts', false),
-  new RouteClass('/admin/posts/edit/{id}', 'Posts', false),
-  new RouteClass('/admin/authors', 'Authors', true),
-];
+// $routesClasses = [
+//   new RouteClass('/admin', 'Dashboard', true),
+//   new RouteClass('/admin/posts', 'Posts', true),
+//   new RouteClass('/admin/posts/create', 'Posts', false),
+//   new RouteClass('/admin/posts/edit/{id}', 'Posts', false),
+//   new RouteClass('/admin/authors', 'Authors', true),
+// ];
 
 $currentRoute = $_SERVER['REQUEST_URI'];
 
 $activeRouteClass = null;
 
-foreach ($routesClasses as $route) {
+foreach ($sidebarList as $route) {
   if ($route->route === $currentRoute) {
     $activeRouteClass = $route;
     break;
@@ -48,7 +48,7 @@ foreach ($routesClasses as $route) {
     </div>
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview">
-        <?php foreach ($routesClasses as $index => $routeClass): ?>
+        <?php foreach ($sidebarList as $index => $routeClass): ?>
           <?php if ($routeClass->show): ?>
             <li class="nav-item">
               <a href="<?php echo $routeClass->route; ?>" class="nav-link <?php echo $routeClass->name === $activeRouteClass->name  ? 'active' : ''; ?>">

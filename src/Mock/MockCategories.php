@@ -2,10 +2,8 @@
 
 namespace App\Mock;
 
-use stdClass;
-
-class MockAuthors{
-    public static function listAuthors(){
+class MockCategories {
+    public static function listCategories(){
         return [
             (object)[
                 "id" => 1,

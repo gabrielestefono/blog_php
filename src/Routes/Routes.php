@@ -2,6 +2,7 @@
 
 namespace App\Routes;
 
+use App\Classes\AdminBase;
 use App\Controllers\Admin\AuthorController;
 use App\Helpers\View;
 use App\Helpers\Traits\RoutesHelper;
@@ -16,7 +17,7 @@ use App\Controllers\Visitors\DashboardController as VisitorsDashboardController;
 class Routes
 {
     use View, RoutesHelper;
-    
+
     /**
      * Método de rotas
      * Este método é responsável por definir as rotas da aplicação
@@ -29,9 +30,9 @@ class Routes
     {
         $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-        $routes = array_merge(self::$routes, self::$routesAdmin);
+        $routes = array_merge(self::$routes, self::getAdminRoutes());
         $file = self::matchRoute($routes, $request_uri, $_SERVER['REQUEST_METHOD']);
-        
+
         if ($file && gettype($file) === 'array') {
             $file = self::checkMethod($file);
             $controller = $file[0];
@@ -56,18 +57,21 @@ class Routes
         '/author' => [VisitorsAuthorController::class, 'index', 'GET'],
     ];
 
-    /**
-     * Rotas da aplicação
-     * Rotas de administradores
-     * @var array
-     */
-    private static $routesAdmin = [
-        '/admin' => [DashboardController::class, 'index', 'GET'],
-        '/admin/posts' => [PostController::class, 'index', 'GET'],
-        '/admin/posts/create' => [PostController::class, 'create', 'GET'],
-        '/admin/post/store' => [PostController::class, 'store', 'POST'],
-        '/admin/posts/edit/{id}' => [PostController::class, 'edit', 'GET'],
-        '/admin/profile' => [ProfileController::class, 'index', 'GET'],
-        '/admin/authors' => [AuthorController::class, 'index', 'GET'],
-    ];
+    public static function getAdminRoutes()
+    {
+        $moduleDir = __DIR__ . '/../Views/Pages/Admins/Classes';
+        $moduleNamespace = 'App\\Views\\Pages\\Admins\\Classes';
+        $files = scandir($moduleDir);
+        $appRoutes = [];
+        foreach ($files as $file) {
+            if (substr($file, -4) === '.php') {
+                $className = $moduleNamespace . '\\' . pathinfo($file, PATHINFO_FILENAME);
+                if(class_exists($className) && is_subclass_of($className, AdminBase::class)){
+                    $routes = $className::routes();
+                    $appRoutes = array_merge($appRoutes, $routes);
+                }
+            }
+        }
+        return $appRoutes;
+    }
 }

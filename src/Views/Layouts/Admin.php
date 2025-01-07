@@ -18,7 +18,7 @@ use App\Helpers\Assets;
 
 <body class="layout-fixed admin">
     <div class="wrapper">
-        <?php View::componentLayoutAdmin('Header/Header.php') ?>
+        <?php View::componentLayoutAdmin('Header/Header.php', ['sidebarList' => $sidebarList]) ?>
         <div class="preloader">
             <span>Carregando a página!</span>
         </div>

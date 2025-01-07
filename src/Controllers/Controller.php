@@ -2,14 +2,13 @@
 
 namespace App\Controllers;
 
-use App\Config\BaseConfig;
 use App\Config\Config;
 use App\Errors\ViewNotFoundException;
 
 class Controller
 {
 
-    private function includeFile(string $path, ?array $data = [])
+    private static function includeFile(string $path, ?array $data = [])
     {
         if ($data) {
             extract($data);
@@ -23,7 +22,7 @@ class Controller
         }
     }
 
-    public function view(string $path, ?array $data = [])
+    public static function view(string $path, ?array $data = [])
     {
         $path = str_replace('.', '/', $path);
         self::includeFile("{$path}.php", $data);
