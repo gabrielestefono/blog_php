@@ -11,6 +11,7 @@ $routesClasses = [
   new RouteClass('/admin/posts', 'Posts', true),
   new RouteClass('/admin/posts/create', 'Posts', false),
   new RouteClass('/admin/posts/edit/{id}', 'Posts', false),
+  new RouteClass('/admin/authors', 'Authors', true),
 ];
 
 $currentRoute = $_SERVER['REQUEST_URI'];

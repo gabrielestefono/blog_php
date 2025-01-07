@@ -2,6 +2,7 @@
 
 namespace App\Routes;
 
+use App\Controllers\Admin\AuthorController;
 use App\Helpers\View;
 use App\Helpers\Traits\RoutesHelper;
 use App\Controllers\Admin\PostController;
@@ -67,5 +68,6 @@ class Routes
         '/admin/post/store' => [PostController::class, 'store', 'POST'],
         '/admin/posts/edit/{id}' => [PostController::class, 'edit', 'GET'],
         '/admin/profile' => [ProfileController::class, 'index', 'GET'],
+        '/admin/authors' => [AuthorController::class, 'index', 'GET'],
     ];
 }
