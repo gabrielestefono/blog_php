@@ -3,6 +3,7 @@
 namespace App\Views\Pages\Admins\Classes;
 
 use App\Classes\AdminBase;
+use App\Classes\Components\Table\TableText;
 use App\Classes\RouteClass;
 
 class Posts extends AdminBase
@@ -15,6 +16,7 @@ class Posts extends AdminBase
 
     public static function routes(): array
     {
+        TableText::make('id', 'ID');
         return [
             '/admin/posts' => [self::class, 'listView', 'GET'],
             '/admin/posts/create' => [self::class, 'create', 'GET'],
@@ -26,10 +28,10 @@ class Posts extends AdminBase
     public function table(): array
     {
         return [
-            'id' => 'ID',
-            'title' => 'Título',
-            'author' => 'Autor',
-            'created_at' => 'Criado em'
+            TableText::make('id', 'ID'),
+            TableText::make('title', 'Título'),
+            TableText::make('author', 'Autor'),
+            TableText::make('created_at', 'Criado em')
         ];
     }
 

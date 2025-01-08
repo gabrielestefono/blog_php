@@ -7,21 +7,21 @@ use App\Helpers\View;
     <form action="/admin/post/store" method="post">
         <div class="form-group d-flex flex-wrap">
             <?php
-                View::componentPagesAdmin('Shared/TableForm/Input/Input.php', [
+                View::componentPagesAdmin('TableForm/Input/Input.php', [
                     'label' => 'Título da Publicação',
                     'placeholder' => 'Digite o título da publicação',
                     'name' => 'title',
                     'halfSize' => false,
                     'value' => $tableData->title ?? null
                 ]);
-                View::componentPagesAdmin('Shared/TableForm/Textarea/Textarea.php', [
+                View::componentPagesAdmin('TableForm/Textarea/Textarea.php', [
                     'label' => 'Texto da Publicação',
                     'placeholder' => 'Digite o texto da publicação',
                     'name' => 'description',
                     'halfSize' => false,
                     'value' => $tableData->description ?? null
                 ]);
-                View::componentPagesAdmin('Shared/TableForm/Select/Select.php', [
+                View::componentPagesAdmin('TableForm/Select/Select.php', [
                     'label' => 'Selecione uma Categoria',
                     'name' => 'category',
                     'placeholder' => 'Selecione uma Categoria',
@@ -51,7 +51,7 @@ use App\Helpers\View;
                     'multiple' => false,
                     'value' => $tableData->category ?? null
                 ]);
-                View::componentPagesAdmin('Shared/TableForm/Button/Button.php', []);
+                View::componentPagesAdmin('TableForm/Button/Button.php', []);
             ?>
         </div>
     </form>

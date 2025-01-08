@@ -3,6 +3,7 @@
 namespace App\Views\Pages\Admins\Classes;
 
 use App\Classes\AdminBase;
+use App\Classes\Components\Table\TableText;
 use App\Classes\RouteClass;
 
 class Authors extends AdminBase
@@ -25,10 +26,10 @@ class Authors extends AdminBase
     public function table(): array
     {
         return [
-            'id' => 'ID',
-            'name' => 'Nome',
-            'email' => 'Email',
-            'created_at' => 'Criado em'
+            TableText::make('id', 'ID'),
+            TableText::make('name', 'Nome'),
+            TableText::make('email', 'Email'),
+            TableText::make('created_at', 'Criado em'),
         ];
     }
 

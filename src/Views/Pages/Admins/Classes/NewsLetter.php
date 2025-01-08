@@ -3,6 +3,7 @@
 namespace App\Views\Pages\Admins\Classes;
 
 use App\Classes\AdminBase;
+use App\Classes\Components\Table\TableText;
 use App\Classes\RouteClass;
 
 class Newsletter extends AdminBase
@@ -25,9 +26,9 @@ class Newsletter extends AdminBase
     public function table(): array
     {
         return [
-            'id' => 'ID',
-            'name' => 'Nome',
-            'email' => 'Email'
+            TableText::make('id', 'ID'),
+            TableText::make('name', 'Nome'),
+            TableText::make('email', 'Email'),
         ];
     }
 

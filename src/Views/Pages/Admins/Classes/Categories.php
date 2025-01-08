@@ -3,6 +3,7 @@
 namespace App\Views\Pages\Admins\Classes;
 
 use App\Classes\AdminBase;
+use App\Classes\Components\Table\TableText;
 use App\Classes\RouteClass;
 
 class Categories extends AdminBase
@@ -25,8 +26,8 @@ class Categories extends AdminBase
     public function table(): array
     {
         return [
-            'id' => 'ID',
-            'name' => 'Nome'
+            TableText::make('id', 'ID'),
+            TableText::make('name', 'Nome'),
         ];
     }
 

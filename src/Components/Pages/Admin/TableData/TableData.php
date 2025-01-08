@@ -1,25 +1,26 @@
 <div class="card h-100">
     <div class="card-header d-flex align-items-center">
         <h3 class="card-title"><?php echo $tableData->title; ?></h3>
-        <a href="/admin/posts/create" class="btn btn-primary align-self-end ml-auto">Adicionar</a>
+        <a href="<?php echo App\Routes\Routes::getActiveRoute()?>/create" class="btn btn-primary align-self-end ml-auto">Adicionar</a>
     </div>
     <div class="card-body">
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <?php foreach ($tableData->columns as $column): ?>
-                        <th class="text-center"><?php echo $column; ?></th>
+                        <th class="text-center" id="<?php echo $column->getTitle(); ?>"><?php echo $column->getLabel(); ?></th>
                     <?php endforeach; ?>
+                    <th class="text-center" id="actions">Ações</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($tableData->data as $data): ?>
                     <tr>
-                        <?php foreach ($tableData->columns as $key => $column): ?>
-                            <td class="text-center"><?php echo $data->{$key}; ?></td>
-                        <?php endforeach; ?>
+                            <?php foreach ($tableData->columns as $column): ?>
+                                <td class="text-center"><?php echo $column->render($data->{$column->getTitle()});?></td>
+                            <?php endforeach; ?>
                             <td class="text-center">
-                                <a href="/admin/posts/edit/<?php echo $data->id; ?>" class="btn btn-secondary btn-sm">Editar</a>
+                                <a href="<?php echo App\Routes\Routes::getActiveRoute() . "/" . $data->id; ?>" class="btn btn-secondary btn-sm">Editar</a>
                                 <button type="button" class="btn btn-danger btn-sm delete-button" id="button-delete-<?php echo $data->id; ?>">Excluir</button>
                             </td>
                         </tr>
