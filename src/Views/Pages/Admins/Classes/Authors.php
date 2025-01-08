@@ -11,9 +11,9 @@ class Authors extends AdminBase
     {
         return [
             '/admin/authors' => [self::class, 'listView', 'GET'],
-            // '/admin/authors/create' => [PostController::class, 'create', 'GET'],
-            // '/admin/authors/store' => [PostController::class, 'store', 'POST'],
-            // '/admin/authors/edit/{id}' => [PostController::class, 'edit', 'GET'],
+            '/admin/authors/create' => [self::class, 'create', 'GET'],
+            // '/admin/authors/store' => [self::class, 'store', 'POST'],
+            // '/admin/authors/edit/{id}' => [self::class, 'edit', 'GET'],
         ];
     }
 
@@ -28,8 +28,7 @@ class Authors extends AdminBase
             'id' => 'ID',
             'name' => 'Nome',
             'email' => 'Email',
-            'created_at' => 'Criado em',
-            'actions' => 'Ações',
+            'created_at' => 'Criado em'
         ];
     }
 

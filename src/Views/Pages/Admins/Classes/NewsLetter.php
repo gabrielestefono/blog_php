@@ -11,9 +11,9 @@ class Newsletter extends AdminBase
     {
         return [
             '/admin/newsletter' => [self::class, 'listView', 'GET'],
-            // '/admin/newsletter/create' => [PostController::class, 'create', 'GET'],
-            // '/admin/newsletter/store' => [PostController::class, 'store', 'POST'],
-            // '/admin/newsletter/edit/{id}' => [PostController::class, 'edit', 'GET'],
+            '/admin/newsletter/create' => [self::class, 'create', 'GET'],
+            // '/admin/newsletter/store' => [self::class, 'store', 'POST'],
+            // '/admin/newsletter/edit/{id}' => [self::class, 'edit', 'GET'],
         ];
     }
 
@@ -27,8 +27,7 @@ class Newsletter extends AdminBase
         return [
             'id' => 'ID',
             'name' => 'Nome',
-            'email' => 'Email',
-            'actions' => 'Ações',
+            'email' => 'Email'
         ];
     }
 

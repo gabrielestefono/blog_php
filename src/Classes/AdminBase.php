@@ -6,6 +6,7 @@ use App\Controllers\Controller;
 use App\Errors\DatabaseTableNotFoundException;
 use App\Mock\MockAuthors;
 use App\Mock\MockCategories;
+use App\Mock\MockNewsletter;
 use App\Mock\MockPosts;
 use stdClass;
 
@@ -21,22 +22,16 @@ abstract class AdminBase
 
     abstract public static function registerSidebar(): array;
     
-    public function verifyIfDatabaseTableExists(string $name): bool
+    private function verifyIfDatabaseTableExists(string $name): bool
     {
         return true;
     }
 
-    public function listView(): void{
+    private function verifyIfTableDataExists(){
         $databaseTableName = $this->databaseTableName();
         if(!$this->verifyIfDatabaseTableExists($databaseTableName)){
             throw new DatabaseTableNotFoundException("Tabela $databaseTableName não encontrada.");
         }
-        $sidebarList = self::getSidebar();
-        $tableData = new stdClass();
-        $tableData->title = $this->getTitle();
-        $tableData->columns = $this->table();
-        $tableData->data = $this->getData();
-        Controller::view('pages.admins.list', ['tableData' => $tableData, 'sidebarList' => $sidebarList]);
     }
 
     public function getData(){
@@ -50,6 +45,9 @@ abstract class AdminBase
                 break;
             case 'Categorias':
                 $data = MockCategories::listCategories();
+                break;
+            case 'Newsletter':
+                $data = MockNewsletter::listNewsletter();
                 break;
             default:
                 $data = MockPosts::listPosts();
@@ -79,5 +77,21 @@ abstract class AdminBase
             }
         }
         return $appRoutes;
+    }
+
+    public function listView(): void{
+        $this->verifyIfTableDataExists();
+        $sidebarList = self::getSidebar();
+        $tableData = new stdClass();
+        $tableData->title = $this->getTitle();
+        $tableData->columns = $this->table();
+        $tableData->data = $this->getData();
+        Controller::view('pages.admins.list', ['tableData' => $tableData, 'sidebarList' => $sidebarList]);
+    }
+
+    public function create(): void{
+        $this->verifyIfTableDataExists();
+        $sidebarList = self::getSidebar();
+        Controller::view('pages.admins.create', ['sidebarList' => $sidebarList]);
     }
 }

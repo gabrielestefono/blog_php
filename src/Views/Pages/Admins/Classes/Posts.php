@@ -17,7 +17,7 @@ class Posts extends AdminBase
     {
         return [
             '/admin/posts' => [self::class, 'listView', 'GET'],
-            // '/admin/posts/create' => [PostController::class, 'create', 'GET'],
+            '/admin/posts/create' => [self::class, 'create', 'GET'],
             // '/admin/post/store' => [PostController::class, 'store', 'POST'],
             // '/admin/posts/edit/{id}' => [PostController::class, 'edit', 'GET'],
         ];
@@ -29,8 +29,7 @@ class Posts extends AdminBase
             'id' => 'ID',
             'title' => 'Título',
             'author' => 'Autor',
-            'created_at' => 'Criado em',
-            'actions' => 'Ações',
+            'created_at' => 'Criado em'
         ];
     }
 

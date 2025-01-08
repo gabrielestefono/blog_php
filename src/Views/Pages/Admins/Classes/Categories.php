@@ -11,9 +11,9 @@ class Categories extends AdminBase
     {
         return [
             '/admin/categories' => [self::class, 'listView', 'GET'],
-            // '/admin/categories/create' => [PostController::class, 'create', 'GET'],
-            // '/admin/categories/store' => [PostController::class, 'store', 'POST'],
-            // '/admin/categories/edit/{id}' => [PostController::class, 'edit', 'GET'],
+            '/admin/categories/create' => [self::class, 'create', 'GET'],
+            // '/admin/categories/store' => [self::class, 'store', 'POST'],
+            // '/admin/categories/edit/{id}' => [self::class, 'edit', 'GET'],
         ];
     }
 
@@ -26,8 +26,7 @@ class Categories extends AdminBase
     {
         return [
             'id' => 'ID',
-            'name' => 'Nome',
-            'actions' => 'Ações',
+            'name' => 'Nome'
         ];
     }
 
