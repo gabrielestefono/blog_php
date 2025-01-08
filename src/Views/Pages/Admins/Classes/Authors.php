@@ -3,6 +3,8 @@
 namespace App\Views\Pages\Admins\Classes;
 
 use App\Classes\AdminBase;
+use App\Classes\Components\Form\FormInput;
+use App\Classes\Components\Table\TableImage;
 use App\Classes\Components\Table\TableText;
 use App\Classes\RouteClass;
 
@@ -30,6 +32,7 @@ class Authors extends AdminBase
             TableText::make('name', 'Nome'),
             TableText::make('email', 'Email'),
             TableText::make('created_at', 'Criado em'),
+            TableImage::make('image', 'Imagem'),
         ];
     }
 

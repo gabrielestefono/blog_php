@@ -1,1 +1,3 @@
-<td class="text-center"><?php echo $data; ?></td>
+<td class="text-center align-middle">
+    <?php echo $data; ?>
+</td>

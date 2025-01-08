@@ -8,18 +8,18 @@
             <thead>
                 <tr>
                     <?php foreach ($tableData->columns as $column): ?>
-                        <th class="text-center" id="<?php echo $column->getTitle(); ?>"><?php echo $column->getLabel(); ?></th>
+                        <th class="text-center align-middle"><?php echo $column->getLabel(); ?></th>
                     <?php endforeach; ?>
-                    <th class="text-center" id="actions">Ações</th>
+                    <th class="text-center align-middle" style="width: 150px;">Ações</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($tableData->data as $data): ?>
                     <tr>
                             <?php foreach ($tableData->columns as $column): ?>
-                                <td class="text-center"><?php echo $column->render($data->{$column->getTitle()});?></td>
+                                <?php echo $column->render($data->{$column->getTitle()});?>
                             <?php endforeach; ?>
-                            <td class="text-center">
+                            <td class="text-center align-middle" style="width: 150px;">
                                 <a href="<?php echo App\Routes\Routes::getActiveRoute() . "/" . $data->id; ?>" class="btn btn-secondary btn-sm">Editar</a>
                                 <button type="button" class="btn btn-danger btn-sm delete-button" id="button-delete-<?php echo $data->id; ?>">Excluir</button>
                             </td>
