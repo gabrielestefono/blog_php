@@ -2,9 +2,9 @@
 
 namespace App\Views\Pages\Admins\Classes;
 
-use App\Classes\AdminBase;
-use App\Classes\Components\Table\TableText;
 use App\Classes\RouteClass;
+use App\Classes\Components\Table\TableText;
+use App\Classes\Base\Admin\Classes\AdminBase;
 
 class Categories extends AdminBase
 {
@@ -23,11 +23,16 @@ class Categories extends AdminBase
         return 'categories';
     }
 
+    public function form(): array
+    {
+        return [];
+    }
+
     public function table(): array
     {
         return [
-            TableText::make('id', 'ID'),
-            TableText::make('name', 'Nome'),
+            TableText::make('id'),
+            TableText::make('name'),
         ];
     }
 

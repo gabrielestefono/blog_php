@@ -2,11 +2,10 @@
 
 namespace App\Views\Pages\Admins\Classes;
 
-use App\Classes\AdminBase;
-use App\Classes\Components\Form\FormInput;
-use App\Classes\Components\Table\TableImage;
-use App\Classes\Components\Table\TableText;
 use App\Classes\RouteClass;
+use App\Classes\Components\Table\TableText;
+use App\Classes\Components\Table\TableImage;
+use App\Classes\Base\Admin\Classes\AdminBase;
 
 class Authors extends AdminBase
 {
@@ -25,14 +24,19 @@ class Authors extends AdminBase
         return 'authors';
     }
 
+    public function form(): array
+    {
+        return [];
+    }
+
     public function table(): array
     {
         return [
-            TableText::make('id', 'ID'),
-            TableText::make('name', 'Nome'),
-            TableText::make('email', 'Email'),
-            TableText::make('created_at', 'Criado em'),
-            TableImage::make('image', 'Imagem'),
+            TableText::make('id'),
+            TableText::make('name'),
+            TableText::make('email'),
+            TableText::make('created_at'),
+            TableImage::make('image'),
         ];
     }
 

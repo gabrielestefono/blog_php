@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Classes;
+namespace App\Classes\Base\Components\Classes;
 
 abstract class ComponentsTableForm extends ComponentsBase{
     public function getPath(): string {

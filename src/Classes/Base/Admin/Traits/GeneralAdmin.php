@@ -1,40 +1,33 @@
 <?php
 
-namespace App\Classes;
+namespace App\Classes\Base\Admin\Traits;
 
-use App\Controllers\Controller;
-use App\Errors\DatabaseTableNotFoundException;
-use App\Mock\MockAuthors;
-use App\Mock\MockCategories;
-use App\Mock\MockNewsletter;
-use App\Mock\MockPosts;
 use stdClass;
+use App\Mock\MockPosts;
+use App\Mock\MockAuthors;
+use App\Mock\MockNewsletter;
+use App\Mock\MockCategories;
+use App\Controllers\Controller;
+use App\Classes\Base\Admin\Classes\AdminBase;
+use App\Errors\DatabaseTableNotFoundException;
 
-abstract class AdminBase
+trait GeneralAdmin
 {
-    abstract public static function routes(): array;
-
-    abstract public function databaseTableName(): string;
-
-    abstract public function table(): array;
-
-    abstract public function getTitle(): string;
-
-    abstract public static function registerSidebar(): array;
-    
     private function verifyIfDatabaseTableExists(string $name): bool
     {
         return true;
     }
 
-    private function verifyIfTableDataExists(){
+    private function verifyIfTableDataExists()
+    {
         $databaseTableName = $this->databaseTableName();
-        if(!$this->verifyIfDatabaseTableExists($databaseTableName)){
+        if (!$this->verifyIfDatabaseTableExists($databaseTableName)) {
             throw new DatabaseTableNotFoundException("Tabela $databaseTableName não encontrada.");
         }
     }
 
-    public function getData(){
+    private function getData()
+    {
         $data = null;
         switch ($this->getTitle()) {
             case 'Posts':
@@ -56,11 +49,6 @@ abstract class AdminBase
         return $data;
     }
 
-    /**
-     * Register the sidebar.
-     * @return RouteClass[] Array de instâncias de RouteClass.
-     */
-
     public static function getSidebar()
     {
         $moduleDir = __DIR__ . '/../Views/Pages/Admins/Classes';
@@ -70,7 +58,7 @@ abstract class AdminBase
         foreach ($files as $file) {
             if (substr($file, -4) === '.php') {
                 $className = $moduleNamespace . '\\' . pathinfo($file, PATHINFO_FILENAME);
-                if(class_exists($className) && is_subclass_of($className, AdminBase::class)){
+                if (class_exists($className) && is_subclass_of($className, AdminBase::class)) {
                     $routes = $className::registerSidebar();
                     $appRoutes = array_merge($appRoutes, $routes);
                 }
@@ -79,7 +67,8 @@ abstract class AdminBase
         return $appRoutes;
     }
 
-    public function listView(): void{
+    public function listView(): void
+    {
         $this->verifyIfTableDataExists();
         $sidebarList = self::getSidebar();
         $tableData = new stdClass();
@@ -89,9 +78,11 @@ abstract class AdminBase
         Controller::view('pages.admins.list', ['tableData' => $tableData, 'sidebarList' => $sidebarList]);
     }
 
-    public function create(): void{
+    public function create(): void
+    {
         $this->verifyIfTableDataExists();
         $sidebarList = self::getSidebar();
-        Controller::view('pages.admins.create', ['sidebarList' => $sidebarList]);
+        $form = $this->form();
+        Controller::view('pages.admins.create', ['sidebarList' => $sidebarList, 'form' => $form]);
     }
 }

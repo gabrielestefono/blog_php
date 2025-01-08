@@ -2,9 +2,9 @@
 
 namespace App\Views\Pages\Admins\Classes;
 
-use App\Classes\AdminBase;
-use App\Classes\Components\Table\TableText;
 use App\Classes\RouteClass;
+use App\Classes\Components\Table\TableText;
+use App\Classes\Base\Admin\Classes\AdminBase;
 
 class Newsletter extends AdminBase
 {
@@ -23,12 +23,17 @@ class Newsletter extends AdminBase
         return 'newsletter';
     }
 
+    public function form(): array
+    {
+        return [];
+    }
+
     public function table(): array
     {
         return [
-            TableText::make('id', 'ID'),
-            TableText::make('name', 'Nome'),
-            TableText::make('email', 'Email'),
+            TableText::make('id'),
+            TableText::make('name'),
+            TableText::make('email'),
         ];
     }
 

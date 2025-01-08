@@ -17,7 +17,7 @@
                 <?php foreach ($tableData->data as $data): ?>
                     <tr>
                             <?php foreach ($tableData->columns as $column): ?>
-                                <?php echo $column->render($data->{$column->getTitle()});?>
+                                <?php echo $column->render(['data' => $data->{$column->getColumn()}]);?>
                             <?php endforeach; ?>
                             <td class="text-center align-middle" style="width: 150px;">
                                 <a href="<?php echo App\Routes\Routes::getActiveRoute() . "/" . $data->id; ?>" class="btn btn-secondary btn-sm">Editar</a>
