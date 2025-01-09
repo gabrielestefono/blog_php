@@ -7,7 +7,10 @@ use App\Config\BaseConfig;
 require_once __DIR__ . '/vendor/autoload.php';
 
 set_exception_handler(function($exception) {
+    ob_clean();
+    echo '<pre>';
     var_dump($exception);
+    echo '</pre>';
     die();
 });
 
@@ -18,5 +21,5 @@ error_reporting(E_ALL);
 
 use App\Routes\Routes;
 
-new BaseConfig();
+new BaseConfig(); // NOSONAR
 Routes::routes();

@@ -9,4 +9,11 @@ class TableText extends ComponentsTableBase{
     {
         return 'TableText.TableText';
     }
+
+    public function setErrorCaseEmpty(): array
+    {
+        return [
+            'label' => $this->label,
+        ];
+    }
 }

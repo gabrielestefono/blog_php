@@ -20,7 +20,7 @@
                                 <?php echo $column->render(['data' => $data->{$column->getColumn()}]);?>
                             <?php endforeach; ?>
                             <td class="text-center align-middle" style="width: 150px;">
-                                <a href="<?php echo App\Routes\Routes::getActiveRoute() . "/" . $data->id; ?>" class="btn btn-secondary btn-sm">Editar</a>
+                                <a href="<?php echo App\Routes\Routes::getActiveRoute() . "/edit/" . $data->id; ?>" class="btn btn-secondary btn-sm">Editar</a>
                                 <button type="button" class="btn btn-danger btn-sm delete-button" id="button-delete-<?php echo $data->id; ?>">Excluir</button>
                             </td>
                         </tr>

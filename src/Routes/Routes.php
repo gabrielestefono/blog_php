@@ -2,17 +2,14 @@
 
 namespace App\Routes;
 
-use App\Classes\AdminBase;
-use App\Controllers\Admin\AuthorController;
+use App\Classes\Base\Admin\Classes\AdminBase;
 use App\Helpers\View;
 use App\Helpers\Traits\RoutesHelper;
-use App\Controllers\Admin\PostController;
-use App\Controllers\Admin\ProfileController;
-use App\Controllers\Admin\DashboardController;
 use App\Controllers\Visitors\PostController as VisitorsPostController;
 use App\Controllers\Visitors\AuthorController as VisitorsAuthorController;
 use App\Controllers\Visitors\CategoryController as VisitorsCategoryController;
 use App\Controllers\Visitors\DashboardController as VisitorsDashboardController;
+use App\Controllers\Visitors\ErrorController;
 
 class Routes
 {
@@ -32,7 +29,7 @@ class Routes
 
         $routes = array_merge(self::$routes, self::getAdminRoutes());
         $file = self::matchRoute($routes, $request_uri, $_SERVER['REQUEST_METHOD']);
-
+        
         if ($file && gettype($file) === 'array') {
             $file = self::checkMethod($file);
             $controller = $file[0];
@@ -41,7 +38,7 @@ class Routes
             $controller->$metodo(...array_values(self::$params));
             return;
         }
-
+        
         View::errorView('404.php');
     }
 

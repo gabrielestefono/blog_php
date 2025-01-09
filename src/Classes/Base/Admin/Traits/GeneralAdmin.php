@@ -26,7 +26,7 @@ trait GeneralAdmin
         }
     }
 
-    private function getData()
+    private function getDatas()
     {
         $data = null;
         switch ($this->getTitle()) {
@@ -49,9 +49,32 @@ trait GeneralAdmin
         return $data;
     }
 
+    private function getData()
+    {
+        $data = null;
+        switch ($this->getTitle()) {
+            case 'Posts':
+                $data = MockPosts::editPost();
+                break;
+            case 'Autores':
+                $data = MockAuthors::listAuthors();
+                break;
+            case 'Categorias':
+                $data = MockCategories::listCategories();
+                break;
+            case 'Newsletter':
+                $data = MockNewsletter::listNewsletter();
+                break;
+            default:
+                $data = MockPosts::listPosts();
+                break;
+        }
+        return $data;
+    }
+
     public static function getSidebar()
     {
-        $moduleDir = __DIR__ . '/../Views/Pages/Admins/Classes';
+        $moduleDir = __DIR__ . '/../../../../Views/Pages/Admins/Classes';
         $moduleNamespace = 'App\\Views\\Pages\\Admins\\Classes';
         $files = scandir($moduleDir);
         $appRoutes = [];
@@ -74,7 +97,7 @@ trait GeneralAdmin
         $tableData = new stdClass();
         $tableData->title = $this->getTitle();
         $tableData->columns = $this->table();
-        $tableData->data = $this->getData();
+        $tableData->data = $this->getDatas();
         Controller::view('pages.admins.list', ['tableData' => $tableData, 'sidebarList' => $sidebarList]);
     }
 
@@ -84,5 +107,14 @@ trait GeneralAdmin
         $sidebarList = self::getSidebar();
         $form = $this->form();
         Controller::view('pages.admins.create', ['sidebarList' => $sidebarList, 'form' => $form]);
+    }
+
+    public function edit(): void
+    {
+        $this->verifyIfTableDataExists();
+        $sidebarList = self::getSidebar();
+        $form = $this->form();
+        $database = $this->getData();
+        Controller::view('pages.admins.create', ['sidebarList' => $sidebarList, 'form' => $form, 'database' => $database]);
     }
 }

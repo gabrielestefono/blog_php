@@ -31,9 +31,12 @@ class Newsletter extends AdminBase
     public function table(): array
     {
         return [
-            TableText::make('id'),
-            TableText::make('name'),
-            TableText::make('email'),
+            TableText::make('id')
+                ->setLabel('ID'),
+            TableText::make('name')
+                ->setLabel('Nome'),
+            TableText::make('email')
+                ->setLabel('E-mail'),
         ];
     }
 

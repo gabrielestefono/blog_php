@@ -31,8 +31,10 @@ class Categories extends AdminBase
     public function table(): array
     {
         return [
-            TableText::make('id'),
-            TableText::make('name'),
+            TableText::make('id')
+                ->setLabel('ID'),
+            TableText::make('name')
+                ->setLabel('Nome'),
         ];
     }
 

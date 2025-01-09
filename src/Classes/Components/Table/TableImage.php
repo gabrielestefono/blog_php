@@ -9,4 +9,11 @@ class TableImage extends ComponentsTableBase{
     {
         return 'TableImage.TableImage';
     }
+
+    public function setErrorCaseEmpty(): array
+    {
+        return [
+            'label' => $this->label,
+        ];
+    }
 }

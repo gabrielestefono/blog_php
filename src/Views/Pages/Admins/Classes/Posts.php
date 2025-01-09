@@ -20,25 +20,30 @@ class Posts extends AdminBase
         return [
             '/admin/posts' => [self::class, 'listView', 'GET'],
             '/admin/posts/create' => [self::class, 'create', 'GET'],
-            // '/admin/post/store' => [PostController::class, 'store', 'POST'],
-            // '/admin/posts/edit/{id}' => [PostController::class, 'edit', 'GET'],
+            '/admin/posts/edit/{id}' => [self::class, 'edit', 'GET'],
         ];
     }
 
     public function form(): array
     {
         return [
-            FormInput::make(''),
+            FormInput::make('title')
+                ->setLabel('Título')
+                ->setPlaceholder('Digite o título do post')
         ];
     }
 
     public function table(): array
     {
         return [
-            TableText::make('id'),
-            TableText::make('title'),
-            TableText::make('author'),
+            TableText::make('id')
+                ->setLabel('ID'),
+            TableText::make('title')
+                ->setLabel('Título'),
+            TableText::make('author')
+                ->setLabel('Autor'),
             TableText::make('created_at')
+                ->setLabel('Data de Criacao'),
         ];
     }
 
