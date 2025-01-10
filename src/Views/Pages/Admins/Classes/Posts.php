@@ -2,6 +2,7 @@
 
 namespace App\Views\Pages\Admins\Classes;
 
+use App\Classes\Components\Form\FormTextarea;
 use App\Classes\RouteClass;
 use App\Classes\Components\Form\FormInput;
 use App\Classes\Components\Table\TableText;
@@ -29,7 +30,10 @@ class Posts extends AdminBase
         return [
             FormInput::make('title')
                 ->setLabel('Título')
-                ->setPlaceholder('Digite o título do post')
+                ->setPlaceholder('Título'),
+            FormTextarea::make('description')
+                ->setLabel('Descrição')
+                ->setPlaceholder('Descrição'),
         ];
     }
 
