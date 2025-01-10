@@ -2,6 +2,7 @@
 
 namespace App\Views\Pages\Admins\Classes;
 
+use App\Classes\Components\Form\FormInput;
 use App\Classes\RouteClass;
 use App\Classes\Components\Table\TableText;
 use App\Classes\Components\Table\TableImage;
@@ -14,8 +15,7 @@ class Authors extends AdminBase
         return [
             '/admin/authors' => [self::class, 'listView', 'GET'],
             '/admin/authors/create' => [self::class, 'create', 'GET'],
-            // '/admin/authors/store' => [self::class, 'store', 'POST'],
-            // '/admin/authors/edit/{id}' => [self::class, 'edit', 'GET'],
+            '/admin/authors/edit/{id}' => [self::class, 'edit', 'GET'],
         ];
     }
 
@@ -26,7 +26,14 @@ class Authors extends AdminBase
 
     public function form(): array
     {
-        return [];
+        return [
+            FormInput::make('name')
+                ->setLabel('Nome')
+                ->setPlaceholder('Nome do autor'),
+            FormInput::make('email')
+                ->setLabel('E-mail')
+                ->setPlaceholder('E-mail do autor'),
+        ];
     }
 
     public function table(): array

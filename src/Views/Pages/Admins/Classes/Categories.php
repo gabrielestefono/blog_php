@@ -5,6 +5,7 @@ namespace App\Views\Pages\Admins\Classes;
 use App\Classes\RouteClass;
 use App\Classes\Components\Table\TableText;
 use App\Classes\Base\Admin\Classes\AdminBase;
+use App\Classes\Components\Form\FormInput;
 
 class Categories extends AdminBase
 {
@@ -13,8 +14,7 @@ class Categories extends AdminBase
         return [
             '/admin/categories' => [self::class, 'listView', 'GET'],
             '/admin/categories/create' => [self::class, 'create', 'GET'],
-            // '/admin/categories/store' => [self::class, 'store', 'POST'],
-            // '/admin/categories/edit/{id}' => [self::class, 'edit', 'GET'],
+            '/admin/categories/edit/{id}' => [self::class, 'edit', 'GET'],
         ];
     }
 
@@ -25,7 +25,11 @@ class Categories extends AdminBase
 
     public function form(): array
     {
-        return [];
+        return [
+            FormInput::make('name')
+                ->setLabel('Nome')
+                ->setPlaceholder('Nome da categoria'),
+        ];
     }
 
     public function table(): array

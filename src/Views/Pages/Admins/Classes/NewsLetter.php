@@ -13,8 +13,7 @@ class Newsletter extends AdminBase
         return [
             '/admin/newsletter' => [self::class, 'listView', 'GET'],
             '/admin/newsletter/create' => [self::class, 'create', 'GET'],
-            // '/admin/newsletter/store' => [self::class, 'store', 'POST'],
-            // '/admin/newsletter/edit/{id}' => [self::class, 'edit', 'GET'],
+            '/admin/newsletter/edit/{id}' => [self::class, 'edit', 'GET'],
         ];
     }
 
