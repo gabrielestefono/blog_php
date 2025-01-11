@@ -7,6 +7,7 @@ use App\Classes\RouteClass;
 use App\Classes\Components\Form\FormInput;
 use App\Classes\Components\Table\TableText;
 use App\Classes\Base\Admin\Classes\AdminBase;
+use App\Classes\Components\Form\FormSelect;
 
 class Posts extends AdminBase
 {
@@ -34,6 +35,14 @@ class Posts extends AdminBase
             FormTextarea::make('description')
                 ->setLabel('Descrição')
                 ->setPlaceholder('Descrição'),
+            FormSelect::make('category')
+                ->setLabel('Categoria')
+                ->setOptions([
+                    '1' => 'Categoria 1',
+                    '2' => 'Categoria 2',
+                    '3' => 'Categoria 3',
+                ])
+                ->setValue('1'),
         ];
     }
 
